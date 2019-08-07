@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 
-
+//creating the app class
 class App extends Component {
   constructor() {
     super();
@@ -11,12 +11,14 @@ class App extends Component {
     }
   }
 
+  //lifecycle app
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(obj => this.setState({ monsters: obj}))
   }
   
+  //rendering the things
   render() {
     return (
       <div className="App">
