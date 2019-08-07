@@ -8,20 +8,29 @@ class App extends Component {
     super();
 
     this.state = {
-      string: 'Welcome to my new onClick function created and executed by react.js'
+      monsters: [
+        {
+          name: 'R2D3',
+          id: 1
+        },
+        {
+          name: 'C3PO',
+          id: 2
+        },
+        {
+          name: 'BUMBLEBEE',
+          id: 3
+        }
+      ]
     }
   }
   
   render() {
     return (
       <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <code>{this.state.string}</code>
-        </p>
-        <button onClick = {() => this.setState({string: 'HEY THATS CHANGED SO NICELY'})}>Change Text</button>
-      </header>
+        {
+          this.state.monsters.map(monster => <h1 key={ monster.id } > { monster.name }</h1>)
+        }
     </div>
     )
   }
