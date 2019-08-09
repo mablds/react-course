@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { CardList } from './components/card-list/card-list.component'
 import './App.css';
 
 //creating the app class
@@ -14,7 +15,9 @@ class App extends Component {
   //lifecycle app
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
+    //consumiu API e transformou em json
       .then(response => response.json())
+      // em json, passou os dados transformados pro state na chave do array monsters
       .then(obj => this.setState({ monsters: obj}))
   }
   
@@ -22,9 +25,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {
-          this.state.monsters.map(monster => <h1 key={ monster.id } > { monster.name }</h1>)
-        }
+        <CardList name='Card'> 
+          { this.state.monsters.map(monster => 
+            <h1 key={ monster.id }> { monster.name }</h1>
+          )}
+        </CardList>
     </div>
     )
   }
