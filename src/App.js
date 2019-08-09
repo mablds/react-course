@@ -8,7 +8,8 @@ class App extends Component {
     super();
 
     this.state = {
-      monsters: []
+      monsters: [],
+      searchField: ''
     }
   }
 
@@ -17,7 +18,7 @@ class App extends Component {
     fetch('https://jsonplaceholder.typicode.com/users')
     //consumiu API e transformou em json
       .then(response => response.json())
-      // em json, passou os dados transformados pro state na chave do array monsters
+      // em json, passou os dados transformados pro state na chave do array monsters => Assíncrona
       .then(obj => this.setState({ monsters: obj}))
   }
   
@@ -25,9 +26,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <CardList monsters={this.state.monsters}> 
-        
-        </CardList>
+        <input 
+          type='search' 
+          placeholder='Search your contacts' 
+          onChange={e => this.setState({ searchField: e.target.value})}
+        />
+        <CardList monsters={this.state.monsters} /> 
     </div>
     )
   }
