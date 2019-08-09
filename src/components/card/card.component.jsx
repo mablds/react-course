@@ -8,3 +8,4 @@ export const Card = (props) => (
         <p> { props.monster.email }</p>
     </div>
 )
+/* <img alt="monsters" src ={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.monster.id}.png`} /> */
